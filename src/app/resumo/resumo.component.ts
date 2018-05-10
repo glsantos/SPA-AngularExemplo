@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResumoService } from './resumo.service';
 
 @Component({
   selector: 'app-resumo',
@@ -7,28 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumoComponent implements OnInit {
 
-  //Simulando uma API
-  resumo = {
+  resumo;
+  inscricao;
 
-    consultas : {
-      consultas_30dias_anteriores : 87,
-      consultas_30dias_posteriores : 79
-    },
-    faturamento : {
-      anterior : {
-        valor : 100000,
-        comparativo : 2
-      },
-      previsao : {
-        valor : 150000,
-        comparativo : 19
-      }
-    }
-  }
-
-  constructor() { }
+  constructor(private resumoService:ResumoService) {}
 
   ngOnInit() {
+
+    this.inscricao = this.resumoService.getResumo()
+    .subscribe( dados => this.resumo = dados);
+  }
+
+  ngOnDestroy(){
+
+    this.inscricao.unsubscribe();
   }
 
 }

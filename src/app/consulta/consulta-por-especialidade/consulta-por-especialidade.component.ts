@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ConsultaPorEspecialidadeComponent implements OnInit {
 
   @Input() consultas;
+  @Input() erro;
 
   constructor() { }
 

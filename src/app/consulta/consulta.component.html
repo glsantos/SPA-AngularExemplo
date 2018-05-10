@@ -1,3 +1,4 @@
-<app-consulta-por-especialidade [consultas]="consultas.realizadas"></app-consulta-por-especialidade>
 
-<app-consulta-por-especialidade [consultas]="consultas.marcadas"></app-consulta-por-especialidade>
+  <app-consulta-por-especialidade [erro]="erro" [consultas]="consultas?.realizadas"></app-consulta-por-especialidade>
+
+  <app-consulta-por-especialidade [erro]="erro" [consultas]="consultas?.marcadas"></app-consulta-por-especialidade>

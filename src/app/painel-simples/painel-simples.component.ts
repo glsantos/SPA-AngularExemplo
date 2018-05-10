@@ -10,6 +10,7 @@ export class PainelSimplesComponent implements OnInit {
     @Input() titulo;
     col = 6;
     @Input() conteudo = "Sem Conteudo";
+    @Input() tipo;
     constructor() { }
 
     ngOnInit() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FaturamentoService } from './faturamento.service';
 
 @Component({
   selector: 'app-faturamento',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaturamentoComponent implements OnInit {
 
-  constructor() { }
+  faturamento;
+  faturamentoInscricao;
+
+  constructor(private FaturamentoService:FaturamentoService) { }
 
   ngOnInit() {
+
+      this.faturamentoInscricao = this.FaturamentoService.getFaturamento()
+      .subscribe( dados => this.faturamento = dados)
+  }
+
+  ngOnDestroy(){
+
+      this.faturamentoInscricao.unsubscribe();
   }
 
 }
